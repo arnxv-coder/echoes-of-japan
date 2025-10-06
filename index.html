@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本の記憶 - Japanese Memory</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;600;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="sakura-container"></div>
+    <div id="lantern-container"></div>
+    <div id="rain-container"></div>
+    <div id="mist-container"></div>
+    <div id="snow-container"></div>
+    <div id="firefly-container"></div>
+
+    <section id="hero" class="parallax-section">
+        <div class="parallax-layer layer-far"></div>
+        <div class="parallax-layer layer-mid"></div>
+        <div class="parallax-layer layer-near"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title-jp fade-in">日本の記憶</h1>
+            <h2 class="hero-title-en fade-in">Japanese Memory</h2>
+            <p class="hero-subtitle fade-in">A nostalgic journey through tranquil temples, serene rivers, and neon-lit streets</p>
+        </div>
+    </section>
+
+    <section id="vibes" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">雰囲気</span>
+                <span class="title-en">Vibes & Atmosphere</span>
+            </h2>
+            
+            <div class="vibe-grid">
+                <div class="vibe-card" data-vibe="tranquil">
+                    <div class="card-icon">🏯</div>
+                    <h3>静けさ</h3>
+                    <p>Tranquil Temples</p>
+                    <div class="card-description">Ancient wisdom whispers through sacred halls</div>
+                </div>
+                
+                <div class="vibe-card" data-vibe="nature">
+                    <div class="card-icon">🌸</div>
+                    <h3>自然</h3>
+                    <p>Cherry Blossoms</p>
+                    <div class="card-description">Petals dance in the spring breeze</div>
+                </div>
+                
+                <div class="vibe-card" data-vibe="mystical">
+                    <div class="card-icon">🏮</div>
+                    <h3>神秘</h3>
+                    <p>Evening Lanterns</p>
+                    <div class="card-description">Soft lights guide the way through twilight</div>
+                </div>
+                
+                <div class="vibe-card" data-vibe="urban">
+                    <div class="card-icon">🌃</div>
+                    <h3>都市</h3>
+                    <p>Neon Nights</p>
+                    <div class="card-description">Rainy streets reflect electric dreams</div>
+                </div>
+                
+                <div class="vibe-card" data-vibe="serene">
+                    <div class="card-icon">⛰️</div>
+                    <h3>平和</h3>
+                    <p>Mountain Serenity</p>
+                    <div class="card-description">Peaks touch clouds in timeless meditation</div>
+                </div>
+                
+                <div class="vibe-card" data-vibe="zen">
+                    <div class="card-icon">🎋</div>
+                    <h3>禅</h3>
+                    <p>Bamboo Grove</p>
+                    <div class="card-description">Wind whispers secrets through swaying stalks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section parallax-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">ギャラリー</span>
+                <span class="title-en">Visual Journey</span>
+            </h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-delay="0">
+                    <img src="attached_assets/stock_images/japanese_temple_with_3afd6be9.jpg" alt="Japanese Temple">
+                    <div class="gallery-overlay">
+                        <span>Sacred Sanctuary</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-delay="100">
+                    <img src="attached_assets/stock_images/japanese_mountain_la_a0c85fc4.jpg" alt="Mountain River">
+                    <div class="gallery-overlay">
+                        <span>Mountain Stream</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-delay="200">
+                    <img src="attached_assets/stock_images/japanese_paper_lante_09bc2f7e.jpg" alt="Paper Lanterns">
+                    <div class="gallery-overlay">
+                        <span>Lantern Glow</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-delay="300">
+                    <img src="attached_assets/stock_images/japanese_rainy_stree_d5e43343.jpg" alt="Rainy Street">
+                    <div class="gallery-overlay">
+                        <span>Neon Rain</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-delay="400">
+                    <img src="attached_assets/stock_images/japanese_bamboo_fore_2dbf42e6.jpg" alt="Bamboo Forest">
+                    <div class="gallery-overlay">
+                        <span>Bamboo Path</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-delay="500">
+                    <img src="attached_assets/stock_images/japanese_zen_garden__9d1971ac.jpg" alt="Zen Garden">
+                    <div class="gallery-overlay">
+                        <span>Zen Garden</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gallery-petals"></div>
+    </section>
+
+    <section id="nature-journey" class="section parallax-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">自然の旅</span>
+                <span class="title-en">Nature's Journey</span>
+            </h2>
+            
+            <div class="nature-grid">
+                <div class="nature-card waterfall-card">
+                    <img src="attached_assets/stock_images/japanese_waterfall_i_d62e3792.jpg" alt="Waterfall">
+                    <div class="nature-overlay">
+                        <h3>滝</h3>
+                        <p>Cascading Waterfall</p>
+                        <span class="nature-desc">Waters whisper ancient songs</span>
+                    </div>
+                    <div class="water-ripples"></div>
+                </div>
+                
+                <div class="nature-card mountain-card">
+                    <img src="attached_assets/stock_images/japanese_snowy_mount_ae8f9f86.jpg" alt="Snowy Mountain">
+                    <div class="nature-overlay">
+                        <h3>雪山</h3>
+                        <p>Snow-Capped Peak</p>
+                        <span class="nature-desc">Silent majesty touches heaven</span>
+                    </div>
+                    <div class="snow-effect"></div>
+                </div>
+                
+                <div class="nature-card mist-card">
+                    <img src="attached_assets/stock_images/japanese_misty_foggy_97a23ac2.jpg" alt="Misty Forest">
+                    <div class="nature-overlay">
+                        <h3>霧の森</h3>
+                        <p>Misty Forest</p>
+                        <span class="nature-desc">Veiled in morning mystery</span>
+                    </div>
+                    <div class="mist-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sacred-places" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">聖地</span>
+                <span class="title-en">Sacred Places</span>
+            </h2>
+            
+            <div class="sacred-grid">
+                <div class="sacred-card shrine-card">
+                    <img src="attached_assets/stock_images/japanese_torii_gate__2dbe6cdb.jpg" alt="Torii Gate">
+                    <div class="sacred-overlay">
+                        <div class="icon">⛩️</div>
+                        <h3>鳥居</h3>
+                        <p>Torii Gateway</p>
+                        <span>Threshold between worlds</span>
+                    </div>
+                </div>
+                
+                <div class="sacred-card temple-card">
+                    <img src="attached_assets/stock_images/japanese_temple_with_3afd6be9.jpg" alt="Temple">
+                    <div class="sacred-overlay">
+                        <div class="icon">🛕</div>
+                        <h3>寺</h3>
+                        <p>Ancient Temple</p>
+                        <span>Where spirits rest in peace</span>
+                    </div>
+                </div>
+                
+                <div class="sacred-card garden-card">
+                    <img src="attached_assets/stock_images/japanese_zen_garden__9d1971ac.jpg" alt="Zen Garden">
+                    <div class="sacred-overlay">
+                        <div class="icon">🪨</div>
+                        <h3>禅庭園</h3>
+                        <p>Zen Garden</p>
+                        <span>Stones whisper eternal truths</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="water-elements" class="section parallax-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">水の調べ</span>
+                <span class="title-en">Symphony of Water</span>
+            </h2>
+            
+            <div class="water-showcase">
+                <div class="water-card large-card">
+                    <img src="attached_assets/stock_images/japanese_koi_fish_po_26b4c59d.jpg" alt="Koi Pond">
+                    <div class="water-card-overlay">
+                        <h3>錦鯉</h3>
+                        <p>Koi Pond</p>
+                        <span>Golden dreams swim beneath lotus leaves</span>
+                    </div>
+                    <div class="ripple-effect"></div>
+                </div>
+                
+                <div class="water-card">
+                    <img src="attached_assets/stock_images/japanese_red_bridge__4ceb6d63.jpg" alt="Bridge">
+                    <div class="water-card-overlay">
+                        <h3>橋</h3>
+                        <p>Crimson Bridge</p>
+                        <span>Reflection doubles beauty</span>
+                    </div>
+                </div>
+                
+                <div class="water-card">
+                    <img src="attached_assets/stock_images/japanese_traditional_56c28a68.jpg" alt="Tea House">
+                    <div class="water-card-overlay">
+                        <h3>茶室</h3>
+                        <p>Tea House</p>
+                        <span>Tranquility served in every cup</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seasonal-beauty" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">四季</span>
+                <span class="title-en">Four Seasons</span>
+            </h2>
+            
+            <div class="seasonal-grid">
+                <div class="season-card spring-card">
+                    <img src="attached_assets/stock_images/japanese_sakura_cher_05335483.jpg" alt="Sakura">
+                    <div class="season-overlay">
+                        <div class="season-icon">🌸</div>
+                        <h3>春 - Spring</h3>
+                        <p>Sakura Dreams</p>
+                        <span class="haiku-text">Pink clouds drift earthward<br>Each petal a memory<br>Spring's gentle embrace</span>
+                    </div>
+                    <div class="petal-shower"></div>
+                </div>
+                
+                <div class="season-card autumn-card">
+                    <img src="attached_assets/stock_images/japanese_autumn_mapl_1184a588.jpg" alt="Autumn Leaves">
+                    <div class="season-overlay">
+                        <div class="season-icon">🍁</div>
+                        <h3>秋 - Autumn</h3>
+                        <p>Maple Fire</p>
+                        <span class="haiku-text">Crimson leaves descend<br>Golden light through amber trees<br>Autumn's last whisper</span>
+                    </div>
+                    <div class="leaf-fall"></div>
+                </div>
+                
+                <div class="season-card winter-card">
+                    <img src="attached_assets/stock_images/japanese_snowy_mount_ae8f9f86.jpg" alt="Winter">
+                    <div class="season-overlay">
+                        <div class="season-icon">❄️</div>
+                        <h3>冬 - Winter</h3>
+                        <p>Silent Snow</p>
+                        <span class="haiku-text">Snowflakes softly fall<br>Blanketing sacred mountains<br>Winter's quiet song</span>
+                    </div>
+                    <div class="snow-drift"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="urban-poetry" class="section parallax-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">都市の詩</span>
+                <span class="title-en">Urban Poetry</span>
+            </h2>
+            
+            <div class="urban-grid">
+                <div class="urban-card neon-card">
+                    <img src="attached_assets/stock_images/japanese_rainy_stree_d5e43343.jpg" alt="Neon Street">
+                    <div class="urban-overlay">
+                        <h3>ネオン</h3>
+                        <p>Neon Reflections</p>
+                        <span>Electric dreams in puddles glow</span>
+                    </div>
+                    <div class="rain-effect"></div>
+                </div>
+                
+                <div class="urban-card lantern-card">
+                    <img src="attached_assets/stock_images/japanese_night_stree_fb19b8af.jpg" alt="Lantern Alley">
+                    <div class="urban-overlay">
+                        <h3>提灯通り</h3>
+                        <p>Lantern Alley</p>
+                        <span>Paper lights guide wandering souls</span>
+                    </div>
+                    <div class="lantern-glow"></div>
+                </div>
+                
+                <div class="urban-card night-card">
+                    <img src="attached_assets/stock_images/japanese_paper_lante_09bc2f7e.jpg" alt="Night Market">
+                    <div class="urban-overlay">
+                        <h3>夜市</h3>
+                        <p>Evening Market</p>
+                        <span>Stories bloom in twilight hours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="urban-rain"></div>
+    </section>
+
+    <section id="culture" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-jp">言葉</span>
+                <span class="title-en">Words of Wisdom</span>
+            </h2>
+            
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <div class="card-front">
+                        <div class="kanji">物の哀れ</div>
+                        <div class="romaji">Mono no Aware</div>
+                    </div>
+                    <div class="card-back">
+                        <p>The bittersweet beauty of transient things</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-front">
+                        <div class="kanji">侘寂</div>
+                        <div class="romaji">Wabi-Sabi</div>
+                    </div>
+                    <div class="card-back">
+                        <p>Finding beauty in imperfection and impermanence</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-front">
+                        <div class="kanji">幽玄</div>
+                        <div class="romaji">Yūgen</div>
+                    </div>
+                    <div class="card-back">
+                        <p>Profound grace and subtle mystery</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-front">
+                        <div class="kanji">懐かしい</div>
+                        <div class="romaji">Natsukashii</div>
+                    </div>
+                    <div class="card-back">
+                        <p>A nostalgic longing for the past</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-front">
+                        <div class="kanji">木漏れ日</div>
+                        <div class="romaji">Komorebi</div>
+                    </div>
+                    <div class="card-back">
+                        <p>Sunlight filtering through leaves</p>
+                    </div>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="card-front">
+                        <div class="kanji">一期一会</div>
+                        <div class="romaji">Ichi-go Ichi-e</div>
+                    </div>
+                    <div class="card-back">
+                        <p>Treasure every encounter, for it will never recur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="haiku" class="section parallax-section">
+        <div class="haiku-container">
+            <div class="haiku-background"></div>
+            <div class="haiku-content">
+                <div class="haiku-line" data-delay="0">
+                    <span class="jp">桜の花びら</span>
+                    <span class="en">Cherry blossom petals</span>
+                </div>
+                <div class="haiku-line" data-delay="800">
+                    <span class="jp">風に舞い散る</span>
+                    <span class="en">Dancing in the gentle wind</span>
+                </div>
+                <div class="haiku-line" data-delay="1600">
+                    <span class="jp">儚き夢</span>
+                    <span class="en">A fleeting dream</span>
+                </div>
+            </div>
+            <div id="haiku-petals"></div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <p class="footer-credit">Made with <span class="sakura">🌸</span> by <span class="name-jp">アルナヴ</span> <span class="name-en">(Arnav)</span></p>
+            <div class="footer-divider"></div>
+            <p class="footer-subtitle">A nostalgic journey through Japanese memories</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
