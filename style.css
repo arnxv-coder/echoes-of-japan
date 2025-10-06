@@ -1,0 +1,1179 @@
+:root {
+    --sakura-pink: #FFB3C6;
+    --deep-indigo: #2B2D42;
+    --lantern-gold: #FFD166;
+    --soft-cream: #FFF3E3;
+    --neon-cyan: #4DFFF3;
+    --sunset-orange: #FF9F80;
+    --mist-white: rgba(255, 255, 255, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+    background: var(--deep-indigo);
+    color: var(--soft-cream);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#sakura-container,
+#lantern-container,
+#gallery-petals,
+#haiku-petals,
+#rain-container,
+#mist-container,
+#snow-container,
+#firefly-container,
+#urban-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.sakura-petal,
+.floating-lantern {
+    position: absolute;
+    pointer-events: none;
+}
+
+.sakura-petal {
+    width: 12px;
+    height: 12px;
+    background: var(--sakura-pink);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.7;
+    box-shadow: 0 0 10px var(--sakura-pink);
+}
+
+.floating-lantern {
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--lantern-gold) 0%, var(--sunset-orange) 100%);
+    border-radius: 5px;
+    opacity: 0.6;
+    box-shadow: 0 0 20px var(--lantern-gold);
+}
+
+#hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.layer-far {
+    background-image: linear-gradient(rgba(43, 45, 66, 0.3), rgba(43, 45, 66, 0.5)), url('attached_assets/stock_images/japanese_mountain_la_a0c85fc4.jpg');
+    transform: translateZ(-3px) scale(1.3);
+}
+
+.layer-mid {
+    background-image: linear-gradient(rgba(43, 45, 66, 0.4), rgba(43, 45, 66, 0.4)), url('attached_assets/stock_images/japanese_bamboo_fore_2dbf42e6.jpg');
+    transform: translateZ(-2px) scale(1.2);
+    opacity: 0.7;
+}
+
+.layer-near {
+    background-image: linear-gradient(rgba(43, 45, 66, 0.5), rgba(43, 45, 66, 0.6)), url('attached_assets/stock_images/japanese_rainy_stree_d5e43343.jpg');
+    transform: translateZ(-1px) scale(1.1);
+    opacity: 0.5;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-title-jp {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--soft-cream);
+    text-shadow: 0 0 30px var(--sakura-pink),
+                 0 0 60px var(--sakura-pink),
+                 0 5px 20px var(--shadow-dark);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.hero-title-en {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: var(--lantern-gold);
+    text-shadow: 0 0 20px var(--lantern-gold),
+                 0 3px 15px var(--shadow-dark);
+    margin-bottom: 2rem;
+    letter-spacing: 0.2em;
+}
+
+.hero-subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--soft-cream);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.hero-title-jp.fade-in {
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.hero-title-en.fade-in {
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.hero-subtitle.fade-in {
+    animation-delay: 0.9s;
+    opacity: 0;
+}
+
+.section {
+    padding: 100px 20px;
+    position: relative;
+    background: linear-gradient(180deg, var(--deep-indigo) 0%, #1a1b2e 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title-jp {
+    display: block;
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--sakura-pink);
+    text-shadow: 0 0 20px var(--sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.title-en {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--lantern-gold);
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+}
+
+.vibe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.vibe-card {
+    background: linear-gradient(135deg, rgba(255, 179, 198, 0.1) 0%, rgba(77, 255, 243, 0.1) 100%);
+    border: 1px solid rgba(255, 179, 198, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    overflow: hidden;
+}
+
+.vibe-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--sakura-pink) 0%, transparent 70%);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+}
+
+.vibe-card:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.2;
+}
+
+.vibe-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vibe-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 60px rgba(255, 179, 198, 0.4),
+                0 0 40px rgba(77, 255, 243, 0.3);
+    border-color: var(--sakura-pink);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px var(--lantern-gold));
+}
+
+.vibe-card h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 1.8rem;
+    color: var(--sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.vibe-card p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    color: var(--lantern-gold);
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--soft-cream);
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+}
+
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(43, 45, 66, 0.95));
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: var(--sakura-pink);
+    text-shadow: 0 0 10px var(--sakura-pink);
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.culture-card {
+    height: 250px;
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.culture-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-front {
+    background: linear-gradient(135deg, rgba(255, 179, 198, 0.15) 0%, rgba(255, 209, 102, 0.15) 100%);
+    border: 2px solid rgba(255, 179, 198, 0.3);
+    box-shadow: 0 5px 20px var(--shadow-dark);
+}
+
+.card-back {
+    background: linear-gradient(135deg, rgba(77, 255, 243, 0.15) 0%, rgba(255, 159, 128, 0.15) 100%);
+    border: 2px solid rgba(77, 255, 243, 0.3);
+    transform: rotateY(180deg);
+    box-shadow: 0 5px 20px var(--shadow-dark);
+}
+
+.culture-card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.culture-card:hover .card-back {
+    transform: rotateY(360deg);
+}
+
+.culture-card:hover {
+    filter: drop-shadow(0 0 30px var(--sakura-pink));
+}
+
+.kanji {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 3rem;
+    color: var(--sakura-pink);
+    text-shadow: 0 0 20px var(--sakura-pink);
+    margin-bottom: 1rem;
+}
+
+.romaji {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: var(--lantern-gold);
+    letter-spacing: 0.1em;
+}
+
+.card-back p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.1rem;
+    color: var(--soft-cream);
+    text-align: center;
+    line-height: 1.8;
+}
+
+#haiku {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.haiku-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.haiku-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        rgba(255, 159, 128, 0.2) 0%, 
+        rgba(43, 45, 66, 0.8) 50%, 
+        rgba(43, 45, 66, 0.95) 100%);
+    transition: background 3s ease;
+}
+
+.haiku-container.dusk .haiku-background {
+    background: linear-gradient(180deg, 
+        rgba(255, 159, 128, 0.4) 0%, 
+        rgba(43, 45, 66, 0.9) 50%, 
+        rgba(26, 27, 46, 1) 100%);
+}
+
+.haiku-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+}
+
+.haiku-line {
+    margin: 2rem 0;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.haiku-line.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.haiku-line .jp {
+    display: block;
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--sakura-pink);
+    text-shadow: 0 0 30px var(--sakura-pink),
+                 0 5px 20px var(--shadow-dark);
+    margin-bottom: 0.5rem;
+}
+
+.haiku-line .en {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: var(--lantern-gold);
+    opacity: 0.9;
+    letter-spacing: 0.1em;
+}
+
+#footer {
+    padding: 3rem 2rem;
+    background: linear-gradient(180deg, #1a1b2e 0%, var(--deep-indigo) 100%);
+    text-align: center;
+    border-top: 1px solid rgba(255, 179, 198, 0.2);
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-credit {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.1rem;
+    color: var(--soft-cream);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.footer-credit:hover {
+    color: var(--sakura-pink);
+    text-shadow: 0 0 20px var(--sakura-pink);
+}
+
+.sakura {
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.name-jp {
+    font-family: 'Sawarabi Mincho', serif;
+    color: var(--sakura-pink);
+    text-shadow: 0 0 10px var(--sakura-pink);
+}
+
+.name-en {
+    color: var(--lantern-gold);
+}
+
+.footer-divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sakura-pink), transparent);
+    margin: 1.5rem auto;
+}
+
+.footer-subtitle {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    color: var(--soft-cream);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.rain-drop,
+.mist-particle,
+.snow-flake,
+.firefly {
+    position: absolute;
+    pointer-events: none;
+}
+
+.rain-drop {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(180deg, transparent, var(--neon-cyan));
+    opacity: 0.6;
+}
+
+.mist-particle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.snow-flake {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 10px white;
+}
+
+.firefly {
+    width: 4px;
+    height: 4px;
+    background: var(--lantern-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--lantern-gold);
+}
+
+.nature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.nature-card {
+    position: relative;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 40px var(--shadow-dark);
+}
+
+.nature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nature-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.nature-card:hover img {
+    transform: scale(1.15);
+}
+
+.nature-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(43, 45, 66, 0.95));
+    padding: 2.5rem;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.nature-card:hover .nature-overlay {
+    transform: translateY(0);
+}
+
+.nature-overlay h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.5rem;
+    color: var(--sakura-pink);
+    text-shadow: 0 0 20px var(--sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.nature-overlay p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.3rem;
+    color: var(--lantern-gold);
+    margin-bottom: 1rem;
+}
+
+.nature-desc {
+    font-size: 1rem;
+    color: var(--soft-cream);
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.water-ripples,
+.snow-effect,
+.mist-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.nature-card:hover .water-ripples {
+    opacity: 1;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+        rgba(77, 255, 243, 0.3) 0%, transparent 50%);
+    animation: ripple 2s ease-out infinite;
+}
+
+.nature-card:hover .mist-effect {
+    opacity: 1;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2));
+    animation: mistDrift 4s ease-in-out infinite;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes mistDrift {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.sacred-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.sacred-card {
+    position: relative;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+}
+
+.sacred-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sacred-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.sacred-card:hover img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.sacred-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(43, 45, 66, 0.7), rgba(43, 45, 66, 0.9));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.sacred-card:hover .sacred-overlay {
+    opacity: 1;
+}
+
+.sacred-overlay .icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px var(--lantern-gold));
+}
+
+.sacred-overlay h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.5rem;
+    color: var(--sakura-pink);
+    text-shadow: 0 0 25px var(--sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.sacred-overlay p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: var(--lantern-gold);
+    margin-bottom: 1rem;
+}
+
+.sacred-overlay span {
+    color: var(--soft-cream);
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.water-showcase {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.water-card {
+    position: relative;
+    height: 400px;
+    border-radius: 18px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 12px 35px var(--shadow-dark);
+}
+
+.water-card.large-card {
+    height: 500px;
+}
+
+.water-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.water-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.water-card:hover img {
+    transform: scale(1.12);
+}
+
+.water-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(43, 45, 66, 0.98));
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.water-card:hover .water-card-overlay {
+    transform: translateY(0);
+}
+
+.water-card-overlay h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.2rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 20px var(--neon-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.water-card-overlay p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    color: var(--lantern-gold);
+    margin-bottom: 0.8rem;
+}
+
+.water-card-overlay span {
+    font-size: 0.95rem;
+    color: var(--soft-cream);
+    opacity: 0.9;
+}
+
+.ripple-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: radial-gradient(circle at 50% 80%, 
+        rgba(77, 255, 243, 0.4) 0%, transparent 60%);
+    transition: opacity 0.5s ease;
+}
+
+.water-card:hover .ripple-effect {
+    opacity: 1;
+    animation: waterRipple 3s ease-out infinite;
+}
+
+@keyframes waterRipple {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(0.8); }
+}
+
+.seasonal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.season-card {
+    position: relative;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0;
+    transform: rotateY(-15deg);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 50px var(--shadow-dark);
+}
+
+.season-card.visible {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.season-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.season-card:hover img {
+    transform: scale(1.2);
+}
+
+.season-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        rgba(43, 45, 66, 0.8) 50%, 
+        rgba(43, 45, 66, 0.95) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.season-card:hover .season-overlay {
+    opacity: 1;
+}
+
+.season-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 25px var(--sakura-pink));
+}
+
+.season-overlay h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2rem;
+    color: var(--sakura-pink);
+    text-shadow: 0 0 20px var(--sakura-pink);
+    margin-bottom: 0.5rem;
+}
+
+.season-overlay p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: var(--lantern-gold);
+    margin-bottom: 1.5rem;
+}
+
+.haiku-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.95rem;
+    color: var(--soft-cream);
+    text-align: center;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.petal-shower,
+.leaf-fall,
+.snow-drift {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.season-card:hover .petal-shower {
+    opacity: 1;
+}
+
+.season-card:hover .leaf-fall {
+    opacity: 1;
+}
+
+.season-card:hover .snow-drift {
+    opacity: 1;
+}
+
+.urban-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.urban-card {
+    position: relative;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 45px var(--shadow-dark);
+}
+
+.urban-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.urban-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.urban-card:hover img {
+    transform: scale(1.15);
+}
+
+.urban-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(43, 45, 66, 0.95));
+    padding: 2.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.urban-card:hover .urban-overlay {
+    transform: translateY(0);
+}
+
+.urban-overlay h3 {
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 2.3rem;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 25px var(--neon-cyan);
+    margin-bottom: 0.5rem;
+}
+
+.urban-overlay p {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    color: var(--lantern-gold);
+    margin-bottom: 1rem;
+}
+
+.urban-overlay span {
+    font-size: 1rem;
+    color: var(--soft-cream);
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.rain-effect,
+.lantern-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.urban-card:hover .rain-effect {
+    opacity: 1;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 10px,
+        rgba(77, 255, 243, 0.1) 10px,
+        rgba(77, 255, 243, 0.1) 11px
+    );
+    animation: rainFall 0.5s linear infinite;
+}
+
+@keyframes rainFall {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 20px; }
+}
+
+.urban-card:hover .lantern-glow {
+    opacity: 1;
+    background: radial-gradient(circle at 50% 20%, 
+        rgba(255, 209, 102, 0.4) 0%, transparent 50%);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 15px;
+    }
+    
+    .vibe-grid,
+    .gallery-grid,
+    .culture-grid,
+    .nature-grid,
+    .sacred-grid,
+    .seasonal-grid,
+    .urban-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .water-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title-jp {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title-en {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        margin-bottom: 2rem;
+    }
+    
+    .culture-card {
+        height: 200px;
+    }
+    
+    .kanji {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-jp {
+        font-size: 2rem;
+    }
+    
+    .hero-title-en {
+        font-size: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .vibe-card,
+    .gallery-item,
+    .culture-card {
+        margin: 0;
+    }
+    
+    .haiku-line .jp {
+        font-size: 1.8rem;
+    }
+    
+    .haiku-line .en {
+        font-size: 0.9rem;
+    }
+}
